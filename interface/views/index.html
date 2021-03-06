@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+
+
+
+	<script>
+		
+		
+	$(document).ready(async function() {
+		$('#example').DataTable( {
+			"ajax": {
+				url: "api/hosts",
+				dataSrc: ""
+			},
+			"columns": [
+				{ "data": "HID" },
+				{ "data": "NEIGHBORHOOD_ID" },
+				{ "data": "RESPONSE_TIME_ID" },
+				{ "data": "URL" },
+				{ "data": "NAME" },
+				{ "data": "SINCE" },
+				{ "data": "RESPONSE_RATE" },
+				{ "data": "THUMBNAIL_URL" },
+				{ "data": "PICTURE_URL" },
+			]
+		} );
+	} );
+
+
+	</script> 
+			
+
+	<!--<script>
+
+		$(document).ready(async function () {
+			$('#example').DataTable({
+				"ajax": {
+					"url": "api/Hosts",
+					"dataSrc": function (json) {
+						if (json.length > 0) {
+							var columnsIn = json[0];
+							var trh = document.getElementById("example").tHead.children[0];
+							var trf = document.getElementById("example").tFoot.children[0];
+							
+							for (var key in columnsIn) {
+								if(key == 'about'){
+									console.log("UIANDUN");
+								}
+							   var th = document.createElement('th');
+
+								th.innerHTML = key;
+								trh.appendChild(th);
+								trf.appendChild(th);
+
+							}
+							return json;
+						}
+					}
+				}
+			});
+		});
+
+
+	</script> -->
+	
+	<!-- <script>
+
+		$(document).ready(async function () {
+			$('#example').DataTable({
+				"ajax": {
+					"url": "api/Hosts",
+					"dataSrc": ""
+				}
+			});
+		});
+
+
+	</script> -->
+
+	<title>DB_G06</title>
+</head>
+
+<body>
+	<h1>Database AirBnB Interface Project (DAIP) - G06</h1>
+
+	<form action="/query">
+		Query: <input type="text" name="q"><br>
+		<input type="submit">
+	</form>
+
+
+	<!-- <table id="example" class="display" style="width:100%">
+		<thead>
+			
+		</thead>
+		<tfoot>
+			
+		</tfoot>
+
+	</table> -->
+
+	
+<table id="example" class="display" style="width:100%">
+	 <thead> 
+		<tr>
+			<th>HID</th> <th>NEIGHBORHOOD_ID</th> <th>RESPONSE_TIME_ID</th> <th>URL</th> <th>NAME</th> <th>SINCE</th> <th>RESPONSE_RATE</th><th>THUMBNAIL_URL</th><th>PICTURE_URL</th>
+		</tr>
+	 </thead>
+	 <tfoot>
+		 <tr>
+			<th>HID</th> <th>NEIGHBORHOOD_ID</th> <th>RESPONSE_TIME_ID</th> <th>URL</th> <th>NAME</th> <th>SINCE</th> <th>RESPONSE_RATE</th><th>THUMBNAIL_URL</th><th>PICTURE_URL</th> 
+	     </tr> 
+	 </tfoot>
+	  
+</table>
+
+
+
+</body>
+
+</html>
